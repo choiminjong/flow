@@ -44,22 +44,3 @@ spring:
         enabled: true
     pathmatch:
       matching-strategy: ant_path_matcher
-
-#atlassian 설정
-atlassian:
-  python:
-    path : D:\Spring\flow\src\main\resources\python\ConfluenceSOAP.py
-  account:
-    # 관리자 계정
-    username: flow_service
-    # 관리자 패스워드
-    password: rmfkdnsem#4
-  confluence:
-    # 서버스 URL
-    serverUrl: https://confluencestage.nexon.com
-  jiralive:
-    # 서버스 URL
-    serverUrl: https://jiralivestage.nexon.com
-  jiradev:
-    # 서버스 URL
-    serverUrl: https://jiradevstage.nexon.com
