@@ -5,6 +5,7 @@ import com.nexon.flow.core.except.Exception;
 import com.nexon.flow.domain.dto.admin.ResourceByRoleInterface;
 import com.nexon.flow.domain.dto.admin.ResourcesDto;
 import com.nexon.flow.domain.dto.condition.ResourcesSearchCondition;
+import com.nexon.flow.domain.entity.Member;
 import com.nexon.flow.domain.entity.Resources;
 import com.nexon.flow.domain.entity.Role;
 import com.nexon.flow.domain.repository.resources.ResourcesRepository;
@@ -66,14 +67,13 @@ public class ResourcesService {
         resources.setHttpMethod(resourcesDto.getHttpMethod());
         resources.setResourceType(resourcesDto.getResourceType());
 
-        Set<Role> roles = new HashSet<>();
+
         if(resourcesDto.getRoles() != null){
+            Set<Role> roles = new HashSet<>();
             resourcesDto.getRoles().forEach(role -> {
                     Role r = rolerService.getByRoleName(role);
                     roles.add(r);
             });
-            resources.setRoleSet(roles);
-        }else{
             resources.setRoleSet(roles);
         }
 
@@ -82,8 +82,12 @@ public class ResourcesService {
 
     @Transactional(readOnly = true)
     public Resources getByResourceName(String resourceName) {
-        return resourcesRepository.findByResourceName(resourceName)
-                                     .orElseThrow(() -> new Exception(ErrorCode.NOT_FOUND));
+        return resourcesRepository.findByResourceName(resourceName).orElseThrow(() -> new Exception(ErrorCode.NOT_FOUND));
+    }
+
+    @Transactional(readOnly = true)
+    public Resources getByResourceSearch(String resourceName) {
+        return resourcesRepository.findByResourceName(resourceName).orElse(new Resources());
     }
 
     @Transactional
