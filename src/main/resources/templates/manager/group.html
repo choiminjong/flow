@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/common :: head"></head>
+
+<body>
+<div id="wrapper">
+    <!--메뉴-->
+    <nav class="navbar-default navbar-static-side" role="navigation"
+         th:replace="fragments/common :: menu('manager','group')"></nav>
+
+    <div id="page-wrapper" class="gray-bg">
+        <!--프로필-->
+        <div class="row border-bottom" th:replace="fragments/common :: profile"></nav></div>
+
+        <!--Content-->
+        <div class="wrapper wrapper-content animated fadeInRight"><!--fadeInRight-->
+            <div class="row"><!--row-->
+                <div class="col-lg-12">
+                    <div class="ibox">
+                        <div class="ibox-title">그룹 관리</div>
+                        <div class="dmzt-container ibox-content p-md" id="group-container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form class="form-inline">
+                                        <div class="btn-group">
+                                            <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">서비스
+                                                선택<span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Confluence</a></li>
+                                                <li><a href="#" class="font-bold">Jiralive</a></li>
+                                                <li><a href="#">JiraDev</a></li>
+                                            </ul>
+                                        </div>
+                                        <input type="text" id="groupNameSeach" class="form-control dmzt-query"
+                                               placeholder="그룹명"/>
+                                        <button type="button" id="btn-grid-groups"
+                                                class="btn btn-default dmzt-search-button">검색
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <table id="grid-groups" class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>no</th>
+                                            <th>Id</th>
+                                            <th>Name</th>
+                                            <th>Desc</th>
+                                            <th>CreateDate</th>
+                                            <th>CreateUser</th>
+                                            <th>UpdateDate</th>
+                                            <th>UpdateUser</th>
+                                            <th>ParentId</th>
+                                            <th>IsUse</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="grid-groups-list" class="tbody-grid-groups-list"></tbody>
+                                    </table>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-lg-3 control-label">Id</label>
+                                            <div class="col-lg-9">
+                                                <input type="number" id="groupId" class="form-control disabled"
+                                                       disabled/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-lg-3 control-label">그룹명</label>
+                                            <div class="col-lg-9">
+                                                <input type="text" id="groupName" class="form-control"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-lg-3 control-label">설명</label>
+                                            <div class="col-lg-9">
+                                                <textarea id="groupDesc" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-lg-3 control-label">사용여부</label>
+                                            <div class="col-lg-9">
+                                                <select id="groupIsUse" name="groupIsUse"
+                                                        class="form-control dmzt-select-useyn">
+                                                    <option value="">-- 사용여부 --</option>
+                                                    <option value="True">Y</option>
+                                                    <option value="False">N</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-3 col-lg-9">
+                                                <button type="button" id="groupReset"
+                                                        class="btn btn-default dmzt-clear-form-button">초기화
+                                                </button>
+                                                <button type="button" id="groupAdd"
+                                                        class="btn btn-primary dmzt-create-button">추가
+                                                </button>
+                                                <button type="button" id="groupChange"
+                                                        class="btn btn-default dmzt-set-button">변경
+                                                </button>
+                                                <button type="button" id="groupDelete"
+                                                        class="btn btn-danger dmzt-remove-button">삭제
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="dmzt-result-alert-container">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="ibox">
+                        <div class="ibox-title">구성원 관리</div>
+                        <div class="dmzt-container ibox-content p-md" id="group-users-container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="form-horizontal">
+
+                                        <div class="form-group">
+                                            <label class="col-lg-1 control-label">Group Id</label>
+                                            <div class="col-lg-11">
+                                                <input id="groupUserId" name="groupUserId" type="number"
+                                                       class="form-control disabled full-max-width" disabled/>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-lg-1 control-label">그룹 멤버</label>
+                                            <div class="col-lg-11">
+                                                <form id="form-group-users">
+                                                    <table id="grid-group-user" class="table table-striped">
+                                                        <thead>
+                                                        <tr>
+                                                            <th scope="col">no</th>
+                                                            <th scope="col">GroupName</th>
+                                                            <th scope="col">이미지</th>
+                                                            <th scope="col">UserName</th>
+                                                            <th scope="col">등록일</th>
+                                                            <th scope="col">등록자</th>
+                                                            <th scope="col">삭제</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <th scope="row">1</th>
+                                                            <td>IT-01 - Design Team</td>
+                                                            <td class="project-people" style="text-align: left;">
+                                                                <a href=""><img alt="image" class="img-circle"
+                                                                                src="http://localhost:8080/img/profile_small.jpg"></a>
+                                                            </td>
+                                                            <td>Otto</td>
+                                                            <td>2022-07-21</td>
+                                                            <td>괸라지(등록자)</td>
+                                                            <td>
+                                                                <button type="button" class="btn btn-w-m btn-danger">
+                                                                    삭제
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-lg-1 control-label">사용자 추가</label>
+                                            <div class="col-lg-11">
+                                                <input type="text" id="" class="form-control"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-1 col-lg-11">
+                                                <button type="button" id="bds-search-list-add"
+                                                        class="btn btn-primary dmzt-create-button">추가
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--row-->
+        </div><!--fadeInRight-->
+        <div class="footer" th:replace="fragments/common :: footer"></div>
+    </div><!--page-wrapper-->
+</div><!--wrapper-->
+</body>
+</html>

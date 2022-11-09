@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/common :: head"></head>
+
+<body>
+<div id="wrapper">
+    <!--메뉴-->
+    <nav class="navbar-default navbar-static-side" role="navigation" th:replace="fragments/common :: menu('','')"></nav>
+
+    <div id="page-wrapper" class="gray-bg">
+        <!--프로필-->
+        <div class="row border-bottom" th:replace="fragments/common :: profile"></nav></div>
+
+        <!--Content-->
+        <div class="wrapper wrapper-content animated fadeInRight"><!--fadeInRight-->
+            <div class="row"><!--row-->
+                <div class="col-lg-12">
+                    <div class="text-center m-t-lg">
+                        <h1>
+                            Welcome in INSPINIA Static SeedProject
+                        </h1>
+                        <small>
+                            It is an application skeleton for a typical web app. You can use it to quickly bootstrap
+                            your webapp projects and dev environment for these projects.222
+                        </small>
+                    </div>
+                </div>
+            </div><!--row-->
+        </div><!--fadeInRight-->
+
+        <div class="footer" th:replace="fragments/common :: footer"></div>
+    </div><!--page-wrapper-->
+</div><!--wrapper-->
+</body>
+</html>

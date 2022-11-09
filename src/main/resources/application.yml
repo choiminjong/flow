@@ -1,0 +1,65 @@
+server:
+  servlet:
+    session:
+      cookie:
+        name: FLOWDEVSESSIONID
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/flow?useSSL=false&serverTimezone=Asia/Seoul
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    maximumPoolSize: 30
+    minimumIdle: 5
+    hikari:
+      connection-test-query: SELECT 1
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: false
+        dialect: org.hibernate.dialect.MySQL57Dialect
+
+  jackson:
+    time-zone: "Asia/Seoul"
+
+  thymeleaf:
+    prefix=classpath: templates/
+    suffix: .html
+    check-template-location: true
+    cache: false
+
+  main:
+    allow-bean-definition-overriding: true
+
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+#atlassian 설정
+atlassian:
+  python:
+    path : D:\Spring\flow\src\main\resources\python\ConfluenceSOAP.py
+  account:
+    # 관리자 계정
+    username: flow_service
+    # 관리자 패스워드
+    password: rmfkdnsem#4
+  confluence:
+    # 서버스 URL
+    serverUrl: https://confluencestage.nexon.com
+  jiralive:
+    # 서버스 URL
+    serverUrl: https://jiralivestage.nexon.com
+  jiradev:
+    # 서버스 URL
+    serverUrl: https://jiradevstage.nexon.com

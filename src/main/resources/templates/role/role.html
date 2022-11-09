@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head th:replace="fragments/common :: head"></head>
+
+<body>
+<div id="wrapper">
+    <!--메뉴-->
+    <nav class="navbar-default navbar-static-side" role="navigation" th:replace="fragments/common :: menu('admin','role')"></nav>
+
+    <div id="page-wrapper" class="gray-bg">
+
+        <!--프로필-->
+        <div class="row border-bottom" th:replace="fragments/common :: profile"></nav></div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>Group</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a>관리자 메뉴</a>
+                    </li>
+                    <li class="active">
+                        <strong>권한 관리</strong>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-lg-2">
+            </div>
+        </div>
+
+        <!--Content-->
+        <div class="wrapper wrapper-content animated fadeInRight"> <!--fadeInRight-->
+            <div class="row"> <!--row-->
+                <div class="col-sm-12"> <!--col-sm-8-->
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>권한 -  총 건수 <span th:text="${roles.totalElements}"> </span></h5>
+                        </div>
+
+                        <div class="ibox-content" style="height: 800px;">
+                            <form class="form-inline d-flex justify-content-end" method="GET">
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <label for="searchText" class="sr-only">검색</label>
+                                    <input type="text" class="form-control" id="searchText" name ="searchText" th:value="${param.searchText}">
+                                </div>
+                                <button type="submit" class="btn btn-light mb-2">검색</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#roleForm">권한 생성</button>
+                            </form>
+
+                            </br></br>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center;"  scope="col">role name</th>
+                                        <th style="text-align: center;"  scope="col">role desc</th>
+                                        <th style="text-align: center;"  scope="col">등록일</th>
+                                        <th style="text-align: center;"  scope="col">수정일</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="role : ${roles}"
+                                        th:onclick="'window.location.href = \'' + @{/admin/role/detail?id={id}(id=${role.id})} + '\''">
+                                        <td style="text-align: center;" th:text="${role.roleName}"></td>
+                                        <td style="text-align: center;" th:text="${role.roleDesc}"></td>
+                                        <td style="text-align: center;" th:text="${role.regdt}"></td>
+                                        <td style="text-align: center;" th:text="${role.moddt}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!--페이징 -->
+                            <nav class="text-center">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item" th:classappend="${1 == roles.pageable.getPageNumber() +1} ? 'disabled'">
+                                        <a class="page-link" href="#" th:href="@{/admin/role(page=${roles.pageable.getPageNumber() - 1},searchText=${param.searchText})}">Previous</a>
+                                    </li>
+                                    <li class="page-item " th:classappend="${i == roles.pageable.getPageNumber() +1} ? 'disabled'"
+                                        th:each="i  : ${#numbers.sequence(startPage,endPage)} ">
+                                        <a class="page-link" href="#" th:text="${i}" th:href="@{/admin/role(page=${i - 1},searchText=${param.searchText})}">1</a>
+                                    </li>
+                                    <li class="page-item" th:classappend="${roles.totalPages == roles.pageable.getPageNumber() +1} ? 'disabled'">
+                                        <a class="page-link" href="#" th:href="@{/admin/role(page=${roles.pageable.getPageNumber() + 1},searchText=${param.searchText})}">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <!--페이징 -->
+
+                        </div><!--ibox-content-->
+                    </div> <!--ibox-->
+                </div> <!--col-sm-8-->
+            </div> <!--fadeInRight-->
+        </div><!--row-->
+
+        <!-- 권한 생성 Modal -->
+        <div class="modal fade" id="roleForm" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="roleFormLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="">Create new role</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="#"  method="post">
+                        <div class="modal-body"> <!--modal-body-->
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" style="padding-top: 10px;">role name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id ="roleName" name ="roleName" placeholder="role name" class="form-control">
+                                </div>
+                            </div></br></br>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" style="padding-top: 10px;">role desc</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id ="roleDesc" name ="roleDesc" placeholder="role desc" class="form-control">
+                                </div>
+                            </div></br></br>
+                        </div> <!--modal-body-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" th:onclick="|createRole()|"> 생성</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div><!-- Modal -->
+
+        <script>
+            async function createRole(){
+                /*
+                    Role 생성
+                */
+                let data ={
+                    roleName : document.querySelector('#roleName').value,
+                    roleDesc : document.querySelector('#roleDesc').value
+                }
+
+                let url = "/api/v1/admin/role"
+                let response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json;charset=utf-8'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                let error  = await response.json();
+                if(error['status'] == '200'){
+                    alert("권한을 생성했습니다.");
+                    location.href="/admin/role";
+                }else{
+                    alert("권한 생성을 실패했습니다.");
+                }
+            }
+        </script>
+
+        <div class="footer" th:replace="fragments/common :: footer"></div>
+    </div><!--page-wrapper-->
+</div><!--wrapper-->
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head th:replace="fragments/common :: head"></head>
+
+
+<body>
+<div id="wrapper">
+
+    <!--메뉴-->
+    <nav class="navbar-default navbar-static-side" role="navigation" th:replace="fragments/common :: menu('admin','resources')"></nav>
+
+    <div id="page-wrapper" class="gray-bg">
+
+        <!--프로필-->
+        <div class="row border-bottom" th:replace="fragments/common :: profile"></nav></div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>Resources</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a>관리자 메뉴</a>
+                        <strong>권한 관리</strong>
+                    </li>
+                    <li class="active">
+                    </li>
+                </ol>
+            </div>
+            <div class="col-lg-2">
+            </div>
+        </div>
+
+        <!--Content-->
+        <div class="wrapper wrapper-content animated fadeInRight"> <!--fadeInRight-->
+            <div class="row"> <!--row-->
+                <div class="col-sm-12" style=" background-color:white"> <!--col-sm-12-->
+                    <div class="ibox">
+                        <div class="ibox-content" >
+                                <form action="#" th:action="@{/admin/resources}" method="post" th:object="${resources}">
+                                    <input th:type="hidden" id="resourcesId" name="id" th:value="*{id}"/>
+                                    <div class="modal-body"> <!--modal-body-->
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" style="padding-top: 10px;">resourceName</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="resourceName" name="resourceName" th:value="*{resourceName}" placeholder="resourceName" class="form-control">
+                                            </div>
+                                        </div></br></br>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" style="padding-top: 10px;">httpMethod</label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control" id="httpMethod" name="httpMethod">
+                                                    <option value="GET" th:selected="${resources.httpMethod == 'GET'}" >GET</option>
+                                                    <option value="POST" th:selected="${resources.httpMethod == 'POST'}" >POST</option>
+                                                    <option value="UPDATE" th:selected="${resources.httpMethod == 'UPDATE' }">UPDATE</option>
+                                                    <option value="DELETE" th:selected="${resources.httpMethod == 'DELETE' }">DELETE</option>
+                                                    <option value="DELETE" th:selected="${resources.httpMethod == 'ALL' }">ALL</option>
+                                                </select>
+                                            </div>
+                                        </div></br></br>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label" style="padding-top: 10px;">resourceType</label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control" id="resourceType" name="resourceType">
+                                                    <option value="url" th:selected="${resources.resourceType == 'url'}">url</option>
+                                                    <option value="method" th:selected="${resources.resourceType == 'method'}">method</option>
+                                                </select>
+                                            </div>
+                                        </div></br></br>
+                                        <div class="form-group">
+                                            <div class="col-sm-8" th:each="role: ${roleList}">
+                                                <div class="col-sm-3"></div>
+                                                <input th:type="checkbox" name="roles" id="roles"
+                                                       th:text="${role.roleName}"
+                                                       th:value="${role.roleName}"
+                                                       th:checked="${resources.roles.contains(role.roleName)} ? 'true' : 'false'" />
+                                            </div>
+                                        </div></br></br>
+                                        <div class="form-group"><label class="col-sm-2 control-label"></label>
+                                            <div class="col-sm-10">
+                                                <button class="btn btn-primary " type="button" th:onclick="|modifiyResource()|"><i class="fa fa-check"></i>&nbsp;수정</button>
+                                                <button class="btn btn-primary " type="button" th:onclick="|deleteResource()|"><i class="fa fa-check"></i>삭제</button>
+                                                <button class="btn btn-primary " type="button" th:onclick="'window.location.href = \'' + @{/admin/resources}+ '\''"><i class="fa fa-check"></i>목록</button>
+                                            </div>
+                                        </div>
+                                    </div><!--modal-body-->
+                                </form>
+                            </div><!--ibox-content-->
+                        </div> <!--ibox-->
+                    </div> <!--col-sm-12-->
+                </div> <!--fadeInRight-->
+            </div><!--row-->
+
+            <script>
+                async function modifiyResource(){
+                    /*
+                        Resource 수정
+                    */
+                    let checkRoles = document.getElementsByName('roles');
+                    let values = [];
+                    for (var i = 0; i < checkRoles.length; i++) {
+
+                        if(checkRoles[i].checked == true){
+                            values.push(checkRoles[i].value);
+                        }
+                    }
+
+                    let data ={
+                        id : document.querySelector('#resourcesId').value,
+                        httpMethod : document.getElementById("httpMethod").value,
+                        resourceType : document.getElementById('resourceType').value,
+                        resourceName : document.querySelector('#resourceName').value,
+                        roles : values
+                    }
+
+                    let url = "/api/v1/admin/resource/"+data.id
+                    let response = await fetch(url, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json;charset=utf-8'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    let error  = await response.json();
+                    if(error['status'] == '200'){
+                        alert("리소스 정보를 변경했습니다..");
+                        location.href="/admin/resources/detail?id="+data.id;
+                    }else{
+                        alert("리소스 변경을 실패했습니다.");
+                    }
+                }
+
+                async function deleteResource(){
+                    /*
+                        Resource 삭제
+                    */
+                    let data ={
+                        id : document.querySelector('#resourcesId').value
+                    }
+
+                    let url = "/api/v1/admin/resource/"+data.id
+                    let response = await fetch(url, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json;charset=utf-8'
+                        }
+                    });
+
+                    let error  = await response.json();
+
+                    if(error['status'] == '200'){
+                        alert("리소스를 삭제했습니다.");
+                        location.href="/admin/resources";
+                    }else{
+                        alert("리소스 삭제를 실패했습니다.");
+                    }
+                }
+            </script>
+
+            <div class="footer" th:replace="fragments/common :: footer"></div>
+        </div><!--page-wrapper-->
+    </div><!--wrapper-->
+</body>
+</html>

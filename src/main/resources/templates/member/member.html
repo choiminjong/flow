@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head th:replace="fragments/common :: head"></head>
+
+<body>
+<div id="wrapper">
+    <!--메뉴-->
+    <nav class="navbar-default navbar-static-side" role="navigation" th:replace="fragments/common :: menu('admin','member')"></nav>
+
+    <div id="page-wrapper" class="gray-bg">
+
+        <!--프로필-->
+        <div class="row border-bottom" th:replace="fragments/common :: profile"></nav></div>
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2>Members</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a>관리자 메뉴</a>
+                    </li>
+                    <li class="active">
+                        <strong>사용자 관리</strong>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-lg-2">
+            </div>
+        </div>
+
+        <!--Content-->
+        <div class="wrapper wrapper-content animated fadeInRight"> <!--fadeInRight-->
+            <div class="row"> <!--row-->
+                <div class="col-sm-12"> <!--col-sm-8-->
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>사용자 -  총 건수 <span th:text="${members.totalElements}"> </span></h5>
+                        </div>
+
+                        <div class="ibox-content" style="height: 800px;">
+                            <form class="form-inline d-flex justify-content-end" method="GET">
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <label for="searchText" class="sr-only">검색</label>
+                                    <input type="text" class="form-control" id="searchText" name ="searchText" th:value="${param.searchText}">
+                                </div>
+                                <button type="submit" class="btn btn-light mb-2">검색</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#memberForm">사용자 생성</button>
+                            </form>
+
+                            </br></br>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align: center;"  scope="col">Full name</th>
+                                        <th style="text-align: center;"  scope="col">Username</th>
+                                        <th style="text-align: center;"  scope="col">Group name</th>
+                                        <th style="text-align: center;"  scope="col">권한</th>
+                                        <th style="text-align: center;"  scope="col">Directory</th>
+                                        <th style="text-align: center;"  scope="col">등록일</th>
+                                        <th style="text-align: center;"  scope="col">수정일</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="member : ${members}"
+                                        th:onclick="'window.location.href = \'' + @{/admin/member/detail?id={id}(id=${member.id})} + '\''">
+
+                                        <td style="text-align: center;" th:text="${member.username}"></td>
+                                        <td style="text-align: center;" th:text="${member.displayname}"></td>
+                                        <td style="text-align: center;" th:text="${member.email}"></td>
+                                        <td style="text-align: center;">
+                                            <span th:each="role,iter : ${member.roles}">
+                                                <h6 th:text="${role.roleName}"></h6>
+                                            </span>
+                                        </td>
+                                     <td style="text-align: center;" th:text="${member.directory}"></td>
+                                     <td style="text-align: center;" th:text="${member.regdt}"></td>
+                                     <td style="text-align: center;" th:text="${member.moddt}"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!--페이징 -->
+                            <nav class="text-center">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item" th:classappend="${1 == members.pageable.getPageNumber() +1} ? 'disabled'">
+                                        <a class="page-link" href="#" th:href="@{/admin/member(page=${members.pageable.getPageNumber() - 1},searchText=${param.searchText})}">Previous</a>
+                                    </li>
+                                    <li class="page-item " th:classappend="${i == members.pageable.getPageNumber() +1} ? 'disabled'"
+                                        th:each="i  : ${#numbers.sequence(startPage,endPage)} ">
+                                        <a class="page-link" href="#" th:text="${i}" th:href="@{/admin/member(page=${i - 1},searchText=${param.searchText})}">1</a>
+                                    </li>
+                                    <li class="page-item" th:classappend="${members.totalPages == members.pageable.getPageNumber() +1} ? 'disabled'">
+                                        <a class="page-link" href="#" th:href="@{/admin/member(page=${members.pageable.getPageNumber() + 1},searchText=${param.searchText})}">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <!--페이징 -->
+
+                        </div><!--ibox-content-->
+
+                    </div> <!--ibox-->
+                </div> <!--col-sm-8-->
+            </div> <!--fadeInRight-->
+        </div><!--row-->
+
+        <div class="footer" th:replace="fragments/common :: footer"></div>
+    </div><!--page-wrapper-->
+</div><!--wrapper-->
+
+<!-- Modal -->
+<div class="modal fade" id="memberForm" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="memberFormLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Create new user</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <form action="#" th:action="@{/admin/memberForm}"  method="post">
+                <div class="modal-body"> <!--modal-body-->
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" style="padding-top: 10px;">Email address</label>
+                        <div class="col-sm-10">
+                            <input type="email" id="email" name ="email" placeholder="E.g email@nexon.co.kr" class="form-control">
+                        </div>
+                    </div></br></br>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" style="padding-top: 10px;">Full name</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="displayname" name ="displayname" placeholder="User's full name" class="form-control">
+                        </div>
+                    </div></br></br>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" style="padding-top: 10px;">Username</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="username" name="username" placeholder="Desired username" class="form-control">
+                        </div>
+                    </div></br></br>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" style="padding-top: 10px;">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" id="password" name="password"  placeholder="Password" class="form-control">
+                        </div>
+                    </div></br></br>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" style="padding-top: 10px;">Directory </label>
+                        <div class="col-sm-10">
+                            <div>
+                                <label><input type="radio" class="directory" checked="" value="Internal Directory" name="directory">Internal Directory</label>
+                            </div>
+                            <div>
+                                <label><input type="radio" class="directory" value="AD-PROXY" name="directory">AD-PROXY</label>
+                            </div>
+                        </div>
+                    </div>
+                    </br></br>
+                </div> <!--modl-body-->
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" th:onclick="|createMember()|">생성</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    async function createMember(){
+        /*
+        Member 생성
+        */
+        let data ={
+            email : document.querySelector('#email').value,
+            displayname : document.querySelector('#displayname').value,
+            username : document.querySelector('#username').value,
+            password : document.querySelector('#password').value,
+            directory : document.querySelector('.directory:checked').value
+        }
+
+        let url = "/api/v1/admin/member"
+        let response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(data)
+        });
+
+        let error  = await response.json();
+        if(error['status'] == '200'){
+            alert("회원가입이 완료되었습니다.");
+            location.href="/admin/member";
+        }else{
+            alert("회원가입이 실패했습니다.");
+        }
+    }
+</script>
+
+</body>
+</html>

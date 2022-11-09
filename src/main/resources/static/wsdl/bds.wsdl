@@ -1,0 +1,1697 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions name="CompanyObjectService" targetNamespace="http://tempuri.org/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex"
+                  xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+                  xmlns:wsa10="http://www.w3.org/2005/08/addressing"
+                  xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+                  xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy"
+                  xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract"
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                  xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+                  xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+    <wsp:Policy wsu:Id="WSHttpBinding_ICompanyObjectService_policy">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <wsaw:UsingAddressing/>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://tempuri.org/Imports">
+            <xsd:import schemaLocation="http://service.aqua.nexon.co.kr:9971/CompanyObjectService/mex?xsd=xsd0"
+                        namespace="http://tempuri.org/"/>
+            <xsd:import schemaLocation="http://service.aqua.nexon.co.kr:9971/CompanyObjectService/mex?xsd=xsd1"
+                        namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+            <xsd:import schemaLocation="http://service.aqua.nexon.co.kr:9971/CompanyObjectService/mex?xsd=xsd2"
+                        namespace="http://schemas.datacontract.org/2004/07/Nexon.Aqua.DataService.BDS.BL"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="ICompanyObjectService_CheckCMPINFO_InputMessage">
+        <wsdl:part name="parameters" element="tns:CheckCMPINFO"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_CheckCMPINFO_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CheckCMPINFOResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_CheckDEPTINFO_InputMessage">
+        <wsdl:part name="parameters" element="tns:CheckDEPTINFO"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_CheckDEPTINFO_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CheckDEPTINFOResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_ChangeInnerAccountPWD_InputMessage">
+        <wsdl:part name="parameters" element="tns:ChangeInnerAccountPWD"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_ChangeInnerAccountPWD_OutputMessage">
+        <wsdl:part name="parameters" element="tns:ChangeInnerAccountPWDResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_ChangeInnerAccountSleepStatus_InputMessage">
+        <wsdl:part name="parameters" element="tns:ChangeInnerAccountSleepStatus"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_ChangeInnerAccountSleepStatus_OutputMessage">
+        <wsdl:part name="parameters" element="tns:ChangeInnerAccountSleepStatusResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetInfoInnerUser_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetInfoInnerUser"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetInfoInnerUser_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetInfoInnerUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetInfoInnerUser2_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetInfoInnerUser2"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetInfoInnerUser2_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetInfoInnerUser2Response"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListInnerUser_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListInnerUser"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListInnerUser_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListInnerUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListInnerUserSearch_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListInnerUserSearch"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListInnerUserSearch_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListInnerUserSearchResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListLeadersForCMP_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListLeadersForCMP"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListLeadersForCMP_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListLeadersForCMPResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_ChangeOuterAccountLockStatus_InputMessage">
+        <wsdl:part name="parameters" element="tns:ChangeOuterAccountLockStatus"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_ChangeOuterAccountLockStatus_OutputMessage">
+        <wsdl:part name="parameters" element="tns:ChangeOuterAccountLockStatusResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_ChangeOuterAccountPWD_InputMessage">
+        <wsdl:part name="parameters" element="tns:ChangeOuterAccountPWD"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_ChangeOuterAccountPWD_OutputMessage">
+        <wsdl:part name="parameters" element="tns:ChangeOuterAccountPWDResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_ChangeOuterAccountSleepStatus_InputMessage">
+        <wsdl:part name="parameters" element="tns:ChangeOuterAccountSleepStatus"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_ChangeOuterAccountSleepStatus_OutputMessage">
+        <wsdl:part name="parameters" element="tns:ChangeOuterAccountSleepStatusResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_CreateOuterCMP_InputMessage">
+        <wsdl:part name="parameters" element="tns:CreateOuterCMP"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_CreateOuterCMP_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CreateOuterCMPResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_CreateOuterDEPT_InputMessage">
+        <wsdl:part name="parameters" element="tns:CreateOuterDEPT"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_CreateOuterDEPT_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CreateOuterDEPTResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetInfoOuterDEPT_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetInfoOuterDEPT"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetInfoOuterDEPT_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetInfoOuterDEPTResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetInfoOuterCMP_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetInfoOuterCMP"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetInfoOuterCMP_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetInfoOuterCMPResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListOuterSleepUser_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListOuterSleepUser"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListOuterSleepUser_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListOuterSleepUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_CreateOuterUser_InputMessage">
+        <wsdl:part name="parameters" element="tns:CreateOuterUser"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_CreateOuterUser_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CreateOuterUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetInfoOuterUser_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetInfoOuterUser"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetInfoOuterUser_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetInfoOuterUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListOuterUser_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListOuterUser"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListOuterUser_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListOuterUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_CheckOuterUserEmail_InputMessage">
+        <wsdl:part name="parameters" element="tns:CheckOuterUserEmail"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_CheckOuterUserEmail_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CheckOuterUserEmailResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_CreateQuickSearch_InputMessage">
+        <wsdl:part name="parameters" element="tns:CreateQuickSearch"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_CreateQuickSearch_OutputMessage">
+        <wsdl:part name="parameters" element="tns:CreateQuickSearchResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListQuickSearch_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListQuickSearch"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListQuickSearch_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListQuickSearchResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListCOMMCodeDetail_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListCOMMCodeDetail"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListCOMMCodeDetail_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListCOMMCodeDetailResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetOuterDEPTMaxCode_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetOuterDEPTMaxCode"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetOuterDEPTMaxCode_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetOuterDEPTMaxCodeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetOuterEMPMaxNO_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetOuterEMPMaxNO"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetOuterEMPMaxNO_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetOuterEMPMaxNOResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListOuterDEPT_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListOuterDEPT"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListOuterDEPT_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListOuterDEPTResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetInfoAllUser_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetInfoAllUser"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetInfoAllUser_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetInfoAllUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListOuterAllMembers_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListOuterAllMembers"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListOuterAllMembers_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListOuterAllMembersResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListSystemByUser_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListSystemByUser"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListSystemByUser_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListSystemByUserResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListDeptInfo_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListDeptInfo"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListDeptInfo_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListDeptInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListDeptInfo2_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListDeptInfo2"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListDeptInfo2_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListDeptInfo2Response"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListOuterDeptInfo_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListOuterDeptInfo"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListOuterDeptInfo_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListOuterDeptInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetInfoDept_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetInfoDept"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetInfoDept_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetInfoDeptResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetInfoAllDept_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetInfoAllDept"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetInfoAllDept_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetInfoAllDeptResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListEmpInfo_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListEmpInfo"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListEmpInfo_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListEmpInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListEmpInfoByDeptCode_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListEmpInfoByDeptCode"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListEmpInfoByDeptCode_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListEmpInfoByDeptCodeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListOuterEmpInfoByDeptCode_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListOuterEmpInfoByDeptCode"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListOuterEmpInfoByDeptCode_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListOuterEmpInfoByDeptCodeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListDeptInfoByApproverEmpNo_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListDeptInfoByApproverEmpNo"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListDeptInfoByApproverEmpNo_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListDeptInfoByApproverEmpNoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListDeptInfoByEmpNo_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListDeptInfoByEmpNo"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListDeptInfoByEmpNo_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListDeptInfoByEmpNoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListOuterDeptInfoByEmpNo_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListOuterDeptInfoByEmpNo"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListOuterDeptInfoByEmpNo_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListOuterDeptInfoByEmpNoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListDeptInfoByUpperDeptCode_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListDeptInfoByUpperDeptCode"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListDeptInfoByUpperDeptCode_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListDeptInfoByUpperDeptCodeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListUserInfoRegardlessOfCMP_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListUserInfoRegardlessOfCMP"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListUserInfoRegardlessOfCMP_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListUserInfoRegardlessOfCMPResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListUserInfoRegardlessOfCMP2_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListUserInfoRegardlessOfCMP2"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListUserInfoRegardlessOfCMP2_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListUserInfoRegardlessOfCMP2Response"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListAllUserInfoRegardlessOfCMP_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListAllUserInfoRegardlessOfCMP"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListAllUserInfoRegardlessOfCMP_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListAllUserInfoRegardlessOfCMPResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListAllUserInfoIncludeRetirement_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListAllUserInfoIncludeRetirement"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListAllUserInfoIncludeRetirement_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListAllUserInfoIncludeRetirementResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetInnerDEPTInfo_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetInnerDEPTInfo"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetInnerDEPTInfo_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetInnerDEPTInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetEmpVacationStatInfo_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetEmpVacationStatInfo"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetEmpVacationStatInfo_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetEmpVacationStatInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListUserRetirement_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListUserRetirement"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListUserRetirement_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListUserRetirementResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListUserByCMPCode_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetListUserByCMPCode"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetListUserByCMPCode_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetListUserByCMPCodeResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetArrayUserInfo_InputMessage">
+        <wsdl:part name="parameters" element="tns:GetArrayUserInfo"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_GetArrayUserInfo_OutputMessage">
+        <wsdl:part name="parameters" element="tns:GetArrayUserInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_SearchUserInfo_InputMessage">
+        <wsdl:part name="parameters" element="tns:SearchUserInfo"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_SearchUserInfo_OutputMessage">
+        <wsdl:part name="parameters" element="tns:SearchUserInfoResponse"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_DeptHierarchyList_InputMessage">
+        <wsdl:part name="parameters" element="tns:DeptHierarchyList"/>
+    </wsdl:message>
+    <wsdl:message name="ICompanyObjectService_DeptHierarchyList_OutputMessage">
+        <wsdl:part name="parameters" element="tns:DeptHierarchyListResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ICompanyObjectService">
+        <wsdl:operation name="CheckCMPINFO">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/CheckCMPINFO"
+                        message="tns:ICompanyObjectService_CheckCMPINFO_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/CheckCMPINFOResponse"
+                         message="tns:ICompanyObjectService_CheckCMPINFO_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CheckDEPTINFO">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/CheckDEPTINFO"
+                        message="tns:ICompanyObjectService_CheckDEPTINFO_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/CheckDEPTINFOResponse"
+                         message="tns:ICompanyObjectService_CheckDEPTINFO_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="ChangeInnerAccountPWD">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/ChangeInnerAccountPWD"
+                        message="tns:ICompanyObjectService_ChangeInnerAccountPWD_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/ChangeInnerAccountPWDResponse"
+                         message="tns:ICompanyObjectService_ChangeInnerAccountPWD_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="ChangeInnerAccountSleepStatus">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/ChangeInnerAccountSleepStatus"
+                        message="tns:ICompanyObjectService_ChangeInnerAccountSleepStatus_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/ChangeInnerAccountSleepStatusResponse"
+                         message="tns:ICompanyObjectService_ChangeInnerAccountSleepStatus_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoInnerUser">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetInfoInnerUser"
+                        message="tns:ICompanyObjectService_GetInfoInnerUser_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetInfoInnerUserResponse"
+                         message="tns:ICompanyObjectService_GetInfoInnerUser_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoInnerUser2">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetInfoInnerUser2"
+                        message="tns:ICompanyObjectService_GetInfoInnerUser2_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetInfoInnerUser2Response"
+                         message="tns:ICompanyObjectService_GetInfoInnerUser2_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListInnerUser">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListInnerUser"
+                        message="tns:ICompanyObjectService_GetListInnerUser_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListInnerUserResponse"
+                         message="tns:ICompanyObjectService_GetListInnerUser_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListInnerUserSearch">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListInnerUserSearch"
+                        message="tns:ICompanyObjectService_GetListInnerUserSearch_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListInnerUserSearchResponse"
+                         message="tns:ICompanyObjectService_GetListInnerUserSearch_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListLeadersForCMP">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListLeadersForCMP"
+                        message="tns:ICompanyObjectService_GetListLeadersForCMP_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListLeadersForCMPResponse"
+                         message="tns:ICompanyObjectService_GetListLeadersForCMP_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="ChangeOuterAccountLockStatus">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/ChangeOuterAccountLockStatus"
+                        message="tns:ICompanyObjectService_ChangeOuterAccountLockStatus_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/ChangeOuterAccountLockStatusResponse"
+                         message="tns:ICompanyObjectService_ChangeOuterAccountLockStatus_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="ChangeOuterAccountPWD">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/ChangeOuterAccountPWD"
+                        message="tns:ICompanyObjectService_ChangeOuterAccountPWD_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/ChangeOuterAccountPWDResponse"
+                         message="tns:ICompanyObjectService_ChangeOuterAccountPWD_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="ChangeOuterAccountSleepStatus">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/ChangeOuterAccountSleepStatus"
+                        message="tns:ICompanyObjectService_ChangeOuterAccountSleepStatus_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/ChangeOuterAccountSleepStatusResponse"
+                         message="tns:ICompanyObjectService_ChangeOuterAccountSleepStatus_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CreateOuterCMP">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/CreateOuterCMP"
+                        message="tns:ICompanyObjectService_CreateOuterCMP_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/CreateOuterCMPResponse"
+                         message="tns:ICompanyObjectService_CreateOuterCMP_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CreateOuterDEPT">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/CreateOuterDEPT"
+                        message="tns:ICompanyObjectService_CreateOuterDEPT_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/CreateOuterDEPTResponse"
+                         message="tns:ICompanyObjectService_CreateOuterDEPT_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoOuterDEPT">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetInfoOuterDEPT"
+                        message="tns:ICompanyObjectService_GetInfoOuterDEPT_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetInfoOuterDEPTResponse"
+                         message="tns:ICompanyObjectService_GetInfoOuterDEPT_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoOuterCMP">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetInfoOuterCMP"
+                        message="tns:ICompanyObjectService_GetInfoOuterCMP_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetInfoOuterCMPResponse"
+                         message="tns:ICompanyObjectService_GetInfoOuterCMP_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListOuterSleepUser">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListOuterSleepUser"
+                        message="tns:ICompanyObjectService_GetListOuterSleepUser_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListOuterSleepUserResponse"
+                         message="tns:ICompanyObjectService_GetListOuterSleepUser_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CreateOuterUser">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/CreateOuterUser"
+                        message="tns:ICompanyObjectService_CreateOuterUser_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/CreateOuterUserResponse"
+                         message="tns:ICompanyObjectService_CreateOuterUser_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoOuterUser">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetInfoOuterUser"
+                        message="tns:ICompanyObjectService_GetInfoOuterUser_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetInfoOuterUserResponse"
+                         message="tns:ICompanyObjectService_GetInfoOuterUser_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListOuterUser">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListOuterUser"
+                        message="tns:ICompanyObjectService_GetListOuterUser_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListOuterUserResponse"
+                         message="tns:ICompanyObjectService_GetListOuterUser_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CheckOuterUserEmail">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/CheckOuterUserEmail"
+                        message="tns:ICompanyObjectService_CheckOuterUserEmail_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/CheckOuterUserEmailResponse"
+                         message="tns:ICompanyObjectService_CheckOuterUserEmail_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="CreateQuickSearch">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/CreateQuickSearch"
+                        message="tns:ICompanyObjectService_CreateQuickSearch_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/CreateQuickSearchResponse"
+                         message="tns:ICompanyObjectService_CreateQuickSearch_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListQuickSearch">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListQuickSearch"
+                        message="tns:ICompanyObjectService_GetListQuickSearch_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListQuickSearchResponse"
+                         message="tns:ICompanyObjectService_GetListQuickSearch_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListCOMMCodeDetail">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListCOMMCodeDetail"
+                        message="tns:ICompanyObjectService_GetListCOMMCodeDetail_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListCOMMCodeDetailResponse"
+                         message="tns:ICompanyObjectService_GetListCOMMCodeDetail_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetOuterDEPTMaxCode">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetOuterDEPTMaxCode"
+                        message="tns:ICompanyObjectService_GetOuterDEPTMaxCode_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetOuterDEPTMaxCodeResponse"
+                         message="tns:ICompanyObjectService_GetOuterDEPTMaxCode_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetOuterEMPMaxNO">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetOuterEMPMaxNO"
+                        message="tns:ICompanyObjectService_GetOuterEMPMaxNO_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetOuterEMPMaxNOResponse"
+                         message="tns:ICompanyObjectService_GetOuterEMPMaxNO_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListOuterDEPT">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListOuterDEPT"
+                        message="tns:ICompanyObjectService_GetListOuterDEPT_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListOuterDEPTResponse"
+                         message="tns:ICompanyObjectService_GetListOuterDEPT_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoAllUser">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetInfoAllUser"
+                        message="tns:ICompanyObjectService_GetInfoAllUser_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetInfoAllUserResponse"
+                         message="tns:ICompanyObjectService_GetInfoAllUser_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListOuterAllMembers">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListOuterAllMembers"
+                        message="tns:ICompanyObjectService_GetListOuterAllMembers_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListOuterAllMembersResponse"
+                         message="tns:ICompanyObjectService_GetListOuterAllMembers_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListSystemByUser">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListSystemByUser"
+                        message="tns:ICompanyObjectService_GetListSystemByUser_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListSystemByUserResponse"
+                         message="tns:ICompanyObjectService_GetListSystemByUser_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListDeptInfo">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListDeptInfo"
+                        message="tns:ICompanyObjectService_GetListDeptInfo_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListDeptInfoResponse"
+                         message="tns:ICompanyObjectService_GetListDeptInfo_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListDeptInfo2">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListDeptInfo2"
+                        message="tns:ICompanyObjectService_GetListDeptInfo2_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListDeptInfo2Response"
+                         message="tns:ICompanyObjectService_GetListDeptInfo2_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListOuterDeptInfo">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListOuterDeptInfo"
+                        message="tns:ICompanyObjectService_GetListOuterDeptInfo_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListOuterDeptInfoResponse"
+                         message="tns:ICompanyObjectService_GetListOuterDeptInfo_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoDept">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetInfoDept"
+                        message="tns:ICompanyObjectService_GetInfoDept_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetInfoDeptResponse"
+                         message="tns:ICompanyObjectService_GetInfoDept_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoAllDept">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetInfoAllDept"
+                        message="tns:ICompanyObjectService_GetInfoAllDept_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetInfoAllDeptResponse"
+                         message="tns:ICompanyObjectService_GetInfoAllDept_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListEmpInfo">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListEmpInfo"
+                        message="tns:ICompanyObjectService_GetListEmpInfo_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListEmpInfoResponse"
+                         message="tns:ICompanyObjectService_GetListEmpInfo_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListEmpInfoByDeptCode">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListEmpInfoByDeptCode"
+                        message="tns:ICompanyObjectService_GetListEmpInfoByDeptCode_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListEmpInfoByDeptCodeResponse"
+                         message="tns:ICompanyObjectService_GetListEmpInfoByDeptCode_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListOuterEmpInfoByDeptCode">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListOuterEmpInfoByDeptCode"
+                        message="tns:ICompanyObjectService_GetListOuterEmpInfoByDeptCode_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListOuterEmpInfoByDeptCodeResponse"
+                         message="tns:ICompanyObjectService_GetListOuterEmpInfoByDeptCode_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListDeptInfoByApproverEmpNo">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListDeptInfoByApproverEmpNo"
+                        message="tns:ICompanyObjectService_GetListDeptInfoByApproverEmpNo_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListDeptInfoByApproverEmpNoResponse"
+                         message="tns:ICompanyObjectService_GetListDeptInfoByApproverEmpNo_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListDeptInfoByEmpNo">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListDeptInfoByEmpNo"
+                        message="tns:ICompanyObjectService_GetListDeptInfoByEmpNo_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListDeptInfoByEmpNoResponse"
+                         message="tns:ICompanyObjectService_GetListDeptInfoByEmpNo_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListOuterDeptInfoByEmpNo">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListOuterDeptInfoByEmpNo"
+                        message="tns:ICompanyObjectService_GetListOuterDeptInfoByEmpNo_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListOuterDeptInfoByEmpNoResponse"
+                         message="tns:ICompanyObjectService_GetListOuterDeptInfoByEmpNo_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListDeptInfoByUpperDeptCode">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListDeptInfoByUpperDeptCode"
+                        message="tns:ICompanyObjectService_GetListDeptInfoByUpperDeptCode_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListDeptInfoByUpperDeptCodeResponse"
+                         message="tns:ICompanyObjectService_GetListDeptInfoByUpperDeptCode_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListUserInfoRegardlessOfCMP">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListUserInfoRegardlessOfCMP"
+                        message="tns:ICompanyObjectService_GetListUserInfoRegardlessOfCMP_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListUserInfoRegardlessOfCMPResponse"
+                         message="tns:ICompanyObjectService_GetListUserInfoRegardlessOfCMP_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListUserInfoRegardlessOfCMP2">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListUserInfoRegardlessOfCMP2"
+                        message="tns:ICompanyObjectService_GetListUserInfoRegardlessOfCMP2_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListUserInfoRegardlessOfCMP2Response"
+                         message="tns:ICompanyObjectService_GetListUserInfoRegardlessOfCMP2_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListAllUserInfoRegardlessOfCMP">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListAllUserInfoRegardlessOfCMP"
+                        message="tns:ICompanyObjectService_GetListAllUserInfoRegardlessOfCMP_InputMessage"/>
+            <wsdl:output
+                    wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListAllUserInfoRegardlessOfCMPResponse"
+                    message="tns:ICompanyObjectService_GetListAllUserInfoRegardlessOfCMP_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListAllUserInfoIncludeRetirement">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListAllUserInfoIncludeRetirement"
+                        message="tns:ICompanyObjectService_GetListAllUserInfoIncludeRetirement_InputMessage"/>
+            <wsdl:output
+                    wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListAllUserInfoIncludeRetirementResponse"
+                    message="tns:ICompanyObjectService_GetListAllUserInfoIncludeRetirement_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetInnerDEPTInfo">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetInnerDEPTInfo"
+                        message="tns:ICompanyObjectService_GetInnerDEPTInfo_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetInnerDEPTInfoResponse"
+                         message="tns:ICompanyObjectService_GetInnerDEPTInfo_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetEmpVacationStatInfo">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetEmpVacationStatInfo"
+                        message="tns:ICompanyObjectService_GetEmpVacationStatInfo_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetEmpVacationStatInfoResponse"
+                         message="tns:ICompanyObjectService_GetEmpVacationStatInfo_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListUserRetirement">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListUserRetirement"
+                        message="tns:ICompanyObjectService_GetListUserRetirement_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListUserRetirementResponse"
+                         message="tns:ICompanyObjectService_GetListUserRetirement_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetListUserByCMPCode">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListUserByCMPCode"
+                        message="tns:ICompanyObjectService_GetListUserByCMPCode_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetListUserByCMPCodeResponse"
+                         message="tns:ICompanyObjectService_GetListUserByCMPCode_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetArrayUserInfo">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/GetArrayUserInfo"
+                        message="tns:ICompanyObjectService_GetArrayUserInfo_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/GetArrayUserInfoResponse"
+                         message="tns:ICompanyObjectService_GetArrayUserInfo_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="SearchUserInfo">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/SearchUserInfo"
+                        message="tns:ICompanyObjectService_SearchUserInfo_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/SearchUserInfoResponse"
+                         message="tns:ICompanyObjectService_SearchUserInfo_OutputMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="DeptHierarchyList">
+            <wsdl:input wsaw:Action="http://tempuri.org/ICompanyObjectService/DeptHierarchyList"
+                        message="tns:ICompanyObjectService_DeptHierarchyList_InputMessage"/>
+            <wsdl:output wsaw:Action="http://tempuri.org/ICompanyObjectService/DeptHierarchyListResponse"
+                         message="tns:ICompanyObjectService_DeptHierarchyList_OutputMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="WSHttpBinding_ICompanyObjectService" type="tns:ICompanyObjectService">
+        <wsp:PolicyReference URI="#WSHttpBinding_ICompanyObjectService_policy"/>
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="CheckCMPINFO">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/CheckCMPINFO" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CheckDEPTINFO">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/CheckDEPTINFO" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ChangeInnerAccountPWD">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/ChangeInnerAccountPWD"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ChangeInnerAccountSleepStatus">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/ChangeInnerAccountSleepStatus"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoInnerUser">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetInfoInnerUser" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoInnerUser2">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetInfoInnerUser2" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListInnerUser">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListInnerUser" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListInnerUserSearch">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListInnerUserSearch"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListLeadersForCMP">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListLeadersForCMP"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ChangeOuterAccountLockStatus">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/ChangeOuterAccountLockStatus"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ChangeOuterAccountPWD">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/ChangeOuterAccountPWD"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ChangeOuterAccountSleepStatus">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/ChangeOuterAccountSleepStatus"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateOuterCMP">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/CreateOuterCMP" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateOuterDEPT">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/CreateOuterDEPT" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoOuterDEPT">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetInfoOuterDEPT" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoOuterCMP">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetInfoOuterCMP" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListOuterSleepUser">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListOuterSleepUser"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateOuterUser">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/CreateOuterUser" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoOuterUser">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetInfoOuterUser" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListOuterUser">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListOuterUser" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CheckOuterUserEmail">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/CheckOuterUserEmail"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateQuickSearch">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/CreateQuickSearch" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListQuickSearch">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListQuickSearch"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListCOMMCodeDetail">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListCOMMCodeDetail"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetOuterDEPTMaxCode">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetOuterDEPTMaxCode"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetOuterEMPMaxNO">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetOuterEMPMaxNO" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListOuterDEPT">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListOuterDEPT" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoAllUser">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetInfoAllUser" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListOuterAllMembers">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListOuterAllMembers"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListSystemByUser">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListSystemByUser"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListDeptInfo">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListDeptInfo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListDeptInfo2">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListDeptInfo2" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListOuterDeptInfo">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListOuterDeptInfo"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoDept">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetInfoDept" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoAllDept">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetInfoAllDept" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListEmpInfo">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListEmpInfo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListEmpInfoByDeptCode">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListEmpInfoByDeptCode"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListOuterEmpInfoByDeptCode">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListOuterEmpInfoByDeptCode"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListDeptInfoByApproverEmpNo">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListDeptInfoByApproverEmpNo"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListDeptInfoByEmpNo">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListDeptInfoByEmpNo"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListOuterDeptInfoByEmpNo">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListOuterDeptInfoByEmpNo"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListDeptInfoByUpperDeptCode">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListDeptInfoByUpperDeptCode"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListUserInfoRegardlessOfCMP">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListUserInfoRegardlessOfCMP"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListUserInfoRegardlessOfCMP2">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListUserInfoRegardlessOfCMP2"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListAllUserInfoRegardlessOfCMP">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListAllUserInfoRegardlessOfCMP"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListAllUserInfoIncludeRetirement">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListAllUserInfoIncludeRetirement"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetInnerDEPTInfo">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetInnerDEPTInfo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetEmpVacationStatInfo">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetEmpVacationStatInfo"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListUserRetirement">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListUserRetirement"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListUserByCMPCode">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListUserByCMPCode"
+                              style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetArrayUserInfo">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/GetArrayUserInfo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SearchUserInfo">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/SearchUserInfo" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DeptHierarchyList">
+            <soap12:operation soapAction="http://tempuri.org/ICompanyObjectService/DeptHierarchyList" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="BasicHttpBinding_ICompanyObjectService" type="tns:ICompanyObjectService">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="CheckCMPINFO">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/CheckCMPINFO" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CheckDEPTINFO">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/CheckDEPTINFO" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ChangeInnerAccountPWD">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/ChangeInnerAccountPWD"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ChangeInnerAccountSleepStatus">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/ChangeInnerAccountSleepStatus"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoInnerUser">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetInfoInnerUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoInnerUser2">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetInfoInnerUser2" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListInnerUser">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListInnerUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListInnerUserSearch">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListInnerUserSearch"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListLeadersForCMP">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListLeadersForCMP"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ChangeOuterAccountLockStatus">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/ChangeOuterAccountLockStatus"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ChangeOuterAccountPWD">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/ChangeOuterAccountPWD"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ChangeOuterAccountSleepStatus">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/ChangeOuterAccountSleepStatus"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateOuterCMP">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/CreateOuterCMP" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateOuterDEPT">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/CreateOuterDEPT" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoOuterDEPT">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetInfoOuterDEPT" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoOuterCMP">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetInfoOuterCMP" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListOuterSleepUser">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListOuterSleepUser"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateOuterUser">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/CreateOuterUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoOuterUser">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetInfoOuterUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListOuterUser">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListOuterUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CheckOuterUserEmail">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/CheckOuterUserEmail" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CreateQuickSearch">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/CreateQuickSearch" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListQuickSearch">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListQuickSearch" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListCOMMCodeDetail">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListCOMMCodeDetail"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetOuterDEPTMaxCode">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetOuterDEPTMaxCode" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetOuterEMPMaxNO">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetOuterEMPMaxNO" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListOuterDEPT">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListOuterDEPT" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoAllUser">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetInfoAllUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListOuterAllMembers">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListOuterAllMembers"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListSystemByUser">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListSystemByUser" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListDeptInfo">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListDeptInfo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListDeptInfo2">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListDeptInfo2" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListOuterDeptInfo">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListOuterDeptInfo"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoDept">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetInfoDept" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetInfoAllDept">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetInfoAllDept" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListEmpInfo">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListEmpInfo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListEmpInfoByDeptCode">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListEmpInfoByDeptCode"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListOuterEmpInfoByDeptCode">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListOuterEmpInfoByDeptCode"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListDeptInfoByApproverEmpNo">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListDeptInfoByApproverEmpNo"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListDeptInfoByEmpNo">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListDeptInfoByEmpNo"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListOuterDeptInfoByEmpNo">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListOuterDeptInfoByEmpNo"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListDeptInfoByUpperDeptCode">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListDeptInfoByUpperDeptCode"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListUserInfoRegardlessOfCMP">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListUserInfoRegardlessOfCMP"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListUserInfoRegardlessOfCMP2">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListUserInfoRegardlessOfCMP2"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListAllUserInfoRegardlessOfCMP">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListAllUserInfoRegardlessOfCMP"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListAllUserInfoIncludeRetirement">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListAllUserInfoIncludeRetirement"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetInnerDEPTInfo">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetInnerDEPTInfo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetEmpVacationStatInfo">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetEmpVacationStatInfo"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListUserRetirement">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListUserRetirement"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetListUserByCMPCode">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetListUserByCMPCode"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetArrayUserInfo">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/GetArrayUserInfo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SearchUserInfo">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/SearchUserInfo" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="DeptHierarchyList">
+            <soap:operation soapAction="http://tempuri.org/ICompanyObjectService/DeptHierarchyList" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CompanyObjectService">
+        <wsdl:port name="WSHttpBinding_ICompanyObjectService" binding="tns:WSHttpBinding_ICompanyObjectService">
+            <soap12:address location="http://service.aqua.nexon.co.kr:9971/CompanyObjectService/"/>
+            <wsa10:EndpointReference>
+                <wsa10:Address>http://service.aqua.nexon.co.kr:9971/CompanyObjectService/</wsa10:Address>
+            </wsa10:EndpointReference>
+        </wsdl:port>
+        <wsdl:port name="BasicHttpBinding_ICompanyObjectService" binding="tns:BasicHttpBinding_ICompanyObjectService">
+            <soap:address location="http://service.aqua.nexon.co.kr:9971/CompanyObjectService/basic"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
