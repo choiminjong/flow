@@ -50,10 +50,10 @@ public class ResourcesController {
     public String viewResources(@RequestParam(value = "id") Long id, Model model) {
 
         ResourcesDto resourcesDto= resourcesService.getById(id);
-        //List<Role> roleList =  rolerService.getRoles();
+        List<Role> roleList =  rolerService.getRoles();
 
         model.addAttribute("resources", resourcesDto);
-        //model.addAttribute("roleList", roleList);
+        model.addAttribute("roleList", roleList);
         //model.addAttribute("resourcesRoleSize", resourcesDto.getRoles().size());
 
         return "resources/resourcesdetail";
