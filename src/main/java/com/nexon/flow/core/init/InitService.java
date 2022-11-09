@@ -2,8 +2,10 @@ package com.nexon.flow.core.init;
 
 import com.nexon.flow.domain.dto.Status;
 import com.nexon.flow.domain.entity.Member;
+import com.nexon.flow.domain.entity.Resources;
 import com.nexon.flow.domain.entity.Role;
 import com.nexon.flow.service.admin.MemberService;
+import com.nexon.flow.service.admin.ResourcesService;
 import com.nexon.flow.service.admin.RolerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.InitializingBean;
@@ -19,6 +21,7 @@ public class InitService implements InitializingBean {
 
     final private RolerService rolerService;
     final private MemberService memberService;
+    final private ResourcesService resourcesService;
     final private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
@@ -31,7 +34,7 @@ public class InitService implements InitializingBean {
             System.out.println("서비스 [ROLE_USER] 권한 생성");
             Role user = Role.builder().roleDesc("ROLE_USER").roleName("ROLE_USER").build();
             rolerService.save(user);
-         }
+        }
 
         Role roleAdmin= rolerService.getRoleSearch("ROLE_ADMIN");
         if(roleAdmin.getRoleName() == null) {
@@ -46,17 +49,22 @@ public class InitService implements InitializingBean {
         if(originUser.getUsername() == null){
             System.out.println("관리자 계정 생성");
 
-            Member member = new Member();
-            member.setPassword((bCryptPasswordEncoder.encode("1234")));
-            member.setStatus(Status.Activate);
-
             Role role = rolerService.getRoleSearch("ROLE_ADMIN");
             Set<Role> roles = new HashSet<>();
-            roles.add(role);
-            member.setMemberRoles(roles);
+            Member member = Member.builder().password(bCryptPasswordEncoder.encode("1234")).status(Status.Activate)
+                            .memberRoles(roles).build();
             memberService.save(member);
         }
 
+        System.out.println("리소스 확인");
+        Resources resourceName = resourcesService.getByResourceName("/**");
+        if(resourceName.getResourceName() == null) {
+            System.out.println("리소스 [/**] , 권한 [ROLE_ADMIN] 생성");
+            Role role = rolerService.getRoleSearch("ROLE_ADMIN");
+            Set<Role> roles = new HashSet<>();
+            roles.add(role);
+            Resources resources= Resources.builder().resourceName("/**").resourceType("URL").roleSet(roles).build();
+            resourcesService.save(resources);
+        }
     }
 }
-
