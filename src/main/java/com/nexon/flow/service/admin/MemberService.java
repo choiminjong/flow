@@ -58,7 +58,7 @@ public class MemberService {
         member.setDisplayname(memberDto.getDisplayname());
         member.setUsername(memberDto.getUsername());
         member.setStatus(memberDto.getStatus());
-        member.setDirectory(memberDto.getDirectory());
+        //member.setDirectory(memberDto.getDirectory());
 
 //        Set<Role> roles = new HashSet<>();
 //        if(memberDto.getRoles() != null){
