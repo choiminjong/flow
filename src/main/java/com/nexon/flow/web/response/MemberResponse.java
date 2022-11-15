@@ -49,7 +49,6 @@ public class MemberResponse {
                                                             .email(m.getEmail())
                                                             .username(m.getUsername())
                                                             .displayname(m.getDisplayname())
-                                                            .directory(m.getDirectory())
                                                             .regdt(m.getRegdt())
                                                             .moddt(m.getModdt())
                                                             .status(m.getStatus())
