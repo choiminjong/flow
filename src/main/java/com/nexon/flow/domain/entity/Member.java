@@ -40,6 +40,10 @@ public class Member extends BaseEntity {
     @Column(name ="email")
     private String email;
 
+    @Comment("Directory")
+    @Column(name ="directory")
+    private String directory;
+
     @Comment("사용여부")
     @Column(name ="status")
     @Enumerated(EnumType.STRING)

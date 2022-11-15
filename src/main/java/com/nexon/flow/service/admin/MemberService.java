@@ -58,15 +58,18 @@ public class MemberService {
         member.setDisplayname(memberDto.getDisplayname());
         member.setUsername(memberDto.getUsername());
         member.setStatus(memberDto.getStatus());
+        member.setDirectory(memberDto.getDirectory());
 
-        Set<Role> roles = new HashSet<>();
-        if(memberDto.getRoles() != null){
-            memberDto.getRoles().forEach(role -> {
-                                Role r = rolerService.getByRoleName(role);
-                                roles.add(r);
-            });
-            member.setMemberRoles(roles);
-        }
+//        Set<Role> roles = new HashSet<>();
+//        if(memberDto.getRoles() != null){
+//            memberDto.getRoles().forEach(role -> {
+//                                Role r = rolerService.getByRoleName(role);
+//                                roles.add(r);
+//            });
+//            member.setMemberRoles(roles);
+//        }else{
+//            member.setMemberRoles(roles);
+//        }
 
         memberRepository.save(member);
     }
